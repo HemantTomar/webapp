@@ -48,6 +48,7 @@ pipeline {
     }
     
     stage('Deploy to Tomcat'){
+      steps {
       sshagent(['tomcat']) {
          sh """
            scp -o StrictHostKeyChecking=no target/*.war ubuntu@18.207.98.119:/home/ubuntu
@@ -55,7 +56,7 @@ pipeline {
          """
       }
    }
-    
+    }
    // stage ('DAST') {
    //   steps {
     //    sshagent(['zap']) {
