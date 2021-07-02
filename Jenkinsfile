@@ -13,13 +13,13 @@ pipeline {
       }
     }
     
-   // stage ('Check-Git-Secrets') {
-   //   steps {
+    stage ('Check-Git-Secrets') {
+     steps {
        // sh 'rm trufflehog || true'
-     //   sh 'docker run gesellix/trufflehog --json https://github.com/HemantTomar/webapp.git > trufflehog'
-      //  sh 'cat trufflehog'
-      //}
-   // }
+        sh 'docker run gesellix/trufflehog --json https://github.com/HemantTomar/webapp.git > trufflehog'
+        sh 'cat trufflehog'
+      }
+   }
     
    //stage ('Source Composition Analysis') {
       //steps {
