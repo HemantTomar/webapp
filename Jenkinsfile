@@ -49,11 +49,12 @@ pipeline {
     
     stage('Deploy to Tomcat'){
       steps {
+        deploy adapters: [tomcat9(credentialsId: 'fae0c4b2-1012-4b06-be38-119b54a9e4c9', path: '', url: 'http://18.207.98.119:8080/')], contextPath: null, onFailure: false, war: '**/*.war'
     //  sshagent(['tomcat']) {
-         sh """
-           scp  target/*.war ubuntu@18.207.98.119:/home/ubuntu
-           ssh  ubuntu@18.207.98.119 'cp -r /home/ubuntu/*.war /home/ubuntu/prod/apache-tomcat-10.0.7/webapps'
-         """
+         //sh """
+         //  scp  target/*.war ubuntu@18.207.98.119:/home/ubuntu
+        //   ssh  ubuntu@18.207.98.119 'cp -r /home/ubuntu/*.war /home/ubuntu/prod/apache-tomcat-10.0.7/webapps'
+      //   """
       //}
    }
     }
